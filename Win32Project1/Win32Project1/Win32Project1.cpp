@@ -131,17 +131,17 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 			glLoadIdentity();
 
 
-			angle = angle + 0.1f;
-			if (angle >= 360.f)
-				angle = 0.f;
-			glTranslatef(0.f, 0.f, 0.f);
-			glRotatef(angle, 0.f, 0.f, 1.f);
+			angle = angle + 0.1f;					// increase our rotation angle counter
+			if (angle >= 360.0f)					// if we've gone in a circle, reset counter
+				angle = 0.0f;
+			glTranslatef(0.0f, 0.0f, -5.0f);		// move back 5 units
+			glRotatef(angle, 0.0f, 0.0f, 1.0f);		// rotate along z-axis
 
-			glColor3f(1.0f, 0.f, 0.f);	// »¡°£»ö
-			glBegin(GL_TRIANGLES);
-				glVertex3f(0.f, 0.f, -10.f);
-				glVertex3f(1.f, 0.f, -10.f);
-				glVertex3f(1.f, 1.f, -10.f);
+			glColor3f(1.0f, 0.0f, 0.0f);			// set color to red
+			glBegin(GL_TRIANGLES);					// draw the triangle
+			glVertex3f(0.0f, 0.0f, 0.0f);
+			glVertex3f(1.0f, 0.0f, 0.0f);
+			glVertex3f(1.0f, 1.0f, 0.0f);
 			glEnd();
 
 			SwapBuffers(g_HDC);
